@@ -26,6 +26,7 @@ names:
 
 - label을 위한 txt file 생성: Labels for this format should be exported to YOLO format with one *.txt file per image. If there are no objects in an image, no *.txt file is required. The *.txt file should be formatted with one row per object in class x_center y_center width height format. Box coordinates must be in normalized xywh format (from 0 to 1). If your boxes are in pixels, you should divide x_center and width by image width, and y_center and height by image height. Class numbers should be zero-indexed (start with 0).
 
+- trained model: ```best.pt```
 
 ## Test Data 선정
 - Test Data: https://www.utic.go.kr/map/map.do?menu=cctv 에서 아주대학교 근처의 화각, 화질이 적당한 cctv 장소를 선정하였고 선정된 장소는 광교중앙역 삼거리
@@ -37,3 +38,6 @@ names:
 ## 캡쳐된 프레임에서 4개의 reference point 선정, perspective transform
 <img src="./ref_point_img.png" width="1000px" height="500px" title="Github_Logo"></img>
 
+- 위 그림과 같이 4개의 ref point 선정 후 perspective matrix 를 생성
+
+- 속도 계산 코드: ```calculate_speed.py```
