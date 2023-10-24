@@ -35,5 +35,5 @@ names:
 - capture.py
 
 ## 캡쳐된 프레임에서 4개의 reference point 선정, perspective transform
-<img src="./ref_point_img.png" width="100px" height="50px" title="Github_Logo"></img>
+<img src="./ref_point_img.png" width="1000px" height="500px" title="Github_Logo"></img>
 
