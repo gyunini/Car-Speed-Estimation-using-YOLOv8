@@ -36,7 +36,7 @@ names:
 - capture.py
 
 ## 캡쳐된 프레임에서 4개의 reference point 선정, perspective transform
-<img src="./ref_point_img.png" width="1000px" height="500px" title="Github_Logo"></img>
+<img src="./img/ref_point_img.png" width="1000px" height="500px" title="Github_Logo"></img>
 
 - 위 그림과 같이 4개의 ref point 선정 후 perspective matrix 를 생성
 
@@ -44,4 +44,4 @@ names:
 - 속도 계산 시 오차 보정을 위해 처음 4 프레임은 처음 계산된 속도만 출력하게 하였고, 이후는 평균 속력으로 계산함
 
 ## 결과
-<img src="./sample_result.png" width="1000px" height="500px" title="Github_Logo"></img>
+<img src="./img/sample_result.png" width="1000px" height="500px" title="Github_Logo"></img>

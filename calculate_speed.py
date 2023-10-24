@@ -9,7 +9,7 @@ from ultralytics import YOLO
 model = YOLO("best.pt")
 
 # Open the video file: 광교중앙역 cctv영상을 https://www.utic.go.kr/map/map.do?menu=cctv 에서 녹화한 영상
-video_path = "video.mp4"
+video_path = "./video/video.mp4"
 cap = cv2.VideoCapture(video_path)
 
 # rack history 저장을 위한 dict

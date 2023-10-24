@@ -1,6 +1,6 @@
 import cv2
 
-video_path = 'video2.mp4'
+video_path = './video/video.mp4'
 cap = cv2.VideoCapture(video_path)
 
 if not cap.isOpened():
@@ -13,5 +13,5 @@ if not ret:
     cap.release()
     exit()
 
-output_image_path = 'first_frame.jpg'
+output_image_path = './img/first_frame.jpg'
 cv2.imwrite(output_image_path, frame)
