@@ -44,4 +44,4 @@ names:
 - 속도 계산 시 오차 보정을 위해 처음 4 프레임은 처음 계산된 속도만 출력하게 하였고, 이후는 평균 속력으로 계산함
 
 ## 결과
-- ```sample_result.py```
+<img src="./sample_result.png" width="1000px" height="500px" title="Github_Logo"></img>
