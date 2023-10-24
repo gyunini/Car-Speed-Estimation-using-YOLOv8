@@ -41,3 +41,7 @@ names:
 - 위 그림과 같이 4개의 ref point 선정 후 perspective matrix 를 생성
 
 - 속도 계산 코드: ```calculate_speed.py```
+- 속도 계산 시 오차 보정을 위해 처음 4 프레임은 처음 계산된 속도만 출력하게 하였고, 이후는 평균 속력으로 계산함
+
+## 결과
+- ```sample_result.py```
