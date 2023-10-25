@@ -50,7 +50,6 @@ names:
 ## 카카오맵 API연동을 통해 실시간 위경도 좌표 표시
 - ```index.html```에서 저장된 위경도 좌표 파일인 ```lat_long_data.json```에서 각 차량 id별로 위경도 좌표가 변화하는 위치를 카카오맵에 표시함
 
-<img src="![Screen Recording 2023-10-26 at 4 49 05 AM](https://github.com/gyunini/Car-Speed-Estimation-using-YOLOv8/assets/80234012/6451ce39-bfd2-42d9-a8d2-91dad8747c4f)" width="500px" height="400px" title="Github_Logo"></img>
 ![Screen Recording 2023-10-26 at 4 49 05 AM](https://github.com/gyunini/Car-Speed-Estimation-using-YOLOv8/assets/80234012/6451ce39-bfd2-42d9-a8d2-91dad8747c4f)
 
 ## 결과
