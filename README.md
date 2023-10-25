@@ -50,7 +50,7 @@ names:
 ## 카카오맵 API연동을 통해 실시간 위경도 좌표 표시
 - ```index.html```에서 저장된 위경도 좌표 파일인 ```lat_long_data.json```에서 각 차량 id별로 위경도 좌표가 변화하는 위치를 카카오맵에 표시함
 
-<img src="./img/kakao_map.png" width="500px" height="500px" title="Github_Logo"></img>
+<img src="./img/kakao_map.png" width="500px" height="400px" title="Github_Logo"></img>
 
 
 ## 결과
