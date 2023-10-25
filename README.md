@@ -43,8 +43,15 @@ names:
 
 - 위 그림과 같이 4개의 ref point 선정 후 perspective matrix 를 생성
 
+- 픽셀 좌표와 perspective matrix를 곱해 위경도 좌표, 미터 좌표를 얻어냄
 - 속도 계산 코드: ```calculate_speed.py```
 - 속도 계산 시 오차 보정을 위해 처음 4 프레임은 처음 계산된 속도만 출력하게 하였고, 이후는 평균 속력으로 계산함
+
+## 카카오맵 API연동을 통해 실시간 위경도 좌표 표시
+- ```index.html```에서 저장된 위경도 좌표 파일인 ```lat_long_data.json```에서 각 차량 id별로 위경도 좌표가 변화하는 위치를 카카오맵에 표시함
+
+<img src="./img/kakao_map.png" width="1000px" height="500px" title="Github_Logo"></img>
+
 
 ## 결과
 <img src="./img/sample_result.png" width="1000px" height="500px" title="Github_Logo"></img>

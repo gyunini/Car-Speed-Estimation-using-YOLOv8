@@ -4,6 +4,8 @@ import cv2
 import numpy as np
 import math
 from ultralytics import YOLO
+from flask import Flask, request, render_template
+import json
 
 # custom dataset으로 fine-tunning한 YOLOv8 model
 model = YOLO("best.pt")
@@ -22,6 +24,7 @@ IMAGE_W = 720
 
 src = np.float32([[380.4, 613.6], [1058.4, 561.6], [363.2, 301.2], [666.4, 268.4]])
 dst = np.float32([[37.289227, 127.050917], [37.289039, 127.050644], [37.288842, 127.051426], [37.288655, 127.051158]])
+lat_long_dst = np.float32([[37.289227, 127.050917], [37.289039, 127.050644], [37.288842, 127.051426], [37.288655, 127.051158]])
 
 # python의 haversine 라이브러리로 각 위경도 좌표간의 거리를 계산
 dst = np.float32([haversine(dst[0], i, unit="m") for i in dst])
@@ -29,12 +32,14 @@ print(dst)  # [0, 31.943, 61.973, 67.023]
 
 dst = np.float32([[0, 0], [31.943, 0], [0, 61.973], [31.943, 61.973]])
 
-
+lat_long_M = cv2.getPerspectiveTransform(src, lat_long_dst)
 M = cv2.getPerspectiveTransform(src, dst)  # The transformation matrix
 print(f"M : {M}")
+print(f"M : {lat_long_M}")
 
 car_dict = defaultdict(list) # tracking되는 차별 id마다 변화되는 미터좌표계 저장
 speed_dict = defaultdict(list) # 평균 속력 계산
+lat_long_data = defaultdict(list)
 frame_count = 0
 
 fps = cap.get(cv2.CAP_PROP_FPS)
@@ -71,6 +76,14 @@ while cap.isOpened():
             lat_long_coor = np.dot(M, src_coor)
             lat_long_coor = np.array([lat_long_coor[i][0] / lat_long_coor[2][0] for i in range(3)])
             # print(f'lat_long_coor:{lat_long_coor}, track_id: {track_id}')
+
+            real_coor = np.dot(lat_long_M, src_coor)
+            np.set_printoptions(precision=15)
+            # print(real_coor)
+            real_coor = np.array([real_coor[i][0] / real_coor[2][0] for i in range(3)])
+            # print(f'real_coor:{real_coor}, track_id: {track_id}')
+            lat_long_data[track_id].append(real_coor[:-1].tolist())
+
             if not car_dict[track_id]:
                 car_dict[track_id].append(lat_long_coor)
             else:
@@ -119,3 +132,17 @@ while cap.isOpened():
 # video capture object와 close the display window Release
 cap.release()
 cv2.destroyAllWindows()
+
+
+# print(lat_long_data)
+lat_long_data = dict(lat_long_data)
+
+# 데이터를 저장할 파일 경로
+data_file = 'lat_long_data.json'
+
+# 데이터를 저장하는 함수
+def save_data(data):
+    with open(data_file, 'w') as file:
+        json.dump(data, file)
+
+save_data(lat_long_data)
