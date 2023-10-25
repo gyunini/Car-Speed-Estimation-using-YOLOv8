@@ -2,8 +2,11 @@
 - YOLOv8 tracking을 이용하여 차량 속도 계산 프로젝트
 
 ## YOLOv8 Fine-Tunning
-- Train Data: YOLOv8 custom dataset training을 위해서 - https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=165 와 https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=164 에서 데이터 확보 후 YOLOv8 fine-tunning 진행
-
+- Train Data: YOLOv8 custom dataset training을 위해서 - https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=165 와 https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=164 에서 데이터 확보 후 YOLOv8 fine-tuning 진행
+## Train data formatting
+- Train data의 format은 xml 형식으로, 파일명과 파일형식등을 포함한 데이터였기 때문에 YOLO가 받을 수 있는 데이터 형식으로 변환할 필요성이 있었음
+- YOLO가 받는 데이터는 [레이블, x_center, y_center, x_width, y_height] 형식이기 때문에 converter.py를 이용해 변환
+  
 - YOLOv8 custom dataset training을 위해서는 
 ``` 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
