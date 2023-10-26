@@ -52,7 +52,10 @@ names:
 
 ## 카카오맵 API연동을 통해 실시간 위경도 좌표 표시
 - ```index.html```에서 저장된 위경도 좌표 파일인 ```lat_long_data.json```에서 각 차량 id별로 위경도 좌표가 변화하는 위치를 카카오맵에 표시함
-
+- 현재 gif 이미지에서는 잘 드러나지 않지만 7번 id 차량이 유턴하는 장면이 잘 표시됨
+- 실시간으로 YOLOv8을 이용하여 detection 한 이후 이를 카카오맵에 표시하기 위해서는 서버 구축이 필요하지만 아직 서버 구축은 미완성
+- 현재는 저장된 모든 차량에 대하여 표시하고 있기 때문에 동영상의 맨 처음에 나타나지 않는 22번 id차량이 함께 나오는 것을 볼 수 있음, 개선 필요해보임
+  
 ![Screen Recording 2023-10-26 at 4 49 05 AM](https://github.com/gyunini/Car-Speed-Estimation-using-YOLOv8/assets/80234012/6451ce39-bfd2-42d9-a8d2-91dad8747c4f)
 
 ## 결과
